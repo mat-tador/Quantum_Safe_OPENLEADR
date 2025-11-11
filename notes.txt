@@ -1,0 +1,42 @@
+Stuff to install: 
+
+-> For kyber you need to have openssl installed 
+    sudo apt install openssl-dev 
+VERIFYING INSTALLATION OF OPENSSL 
+-> openssl version 
+
+- hyperfine -> sudo apt install hyperfine >= 1.18  
+
+VERIFYING INSTALLATION OF HYPERFINE 
+-> hyperfine --version 
+- kyber -> git clone https://github.com/pq-crystals/kyber.git
+
+kyber has two folders 
+ref/ 
+avx2/
+that must be complide using make and then run one of the following test 
+test/test_kyber$ALG
+test/test_vectors$ALG
+test/test_speed$ALG
+
+It is possible to test either with the test_speed, but that will results only in the cycles/ticks for each formulation or running 
+-> hyperfine test/test_kyber512 -r 50 
+
+test results
+397.6 ms +- 1.5ms 
+637.9ms +- 1.3ms 
+965.0ms +- 3.3ms
+3.356s +- m0.017s
+5.191s +- 0.045s 
+7.391s +- 0.041s 
+AVX2
+100ms +- 0.9ms 
+157.3ms +- 0.8ms
+234.2ms +- 2.0ms 
+1.965s +- 0.034s 
+2.898s +- 0.107s 
+3.972s +- 0.027s 
+
+VERIFYING CORRECT INSTALLATION OF KYBER: 
+
+- dilitium -> git clone https://github.com/pq-crystals/dilithium.git
